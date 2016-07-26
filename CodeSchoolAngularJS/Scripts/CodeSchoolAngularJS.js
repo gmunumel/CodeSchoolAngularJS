@@ -33,6 +33,18 @@
                     full: '/Content/Images/dodecahedron.gif'
                 }
             ],
+            reviews: [
+                {
+                    stars: 5,
+                    body: "I love this product!",
+                    author: "joe@thoma.com"
+                },
+                {
+                    stars: 1,
+                    body: "This product sucks",
+                    author: "tim@hater.com"
+                }
+            ],
             canPurchase: true,
             soldOut: false,
         },
@@ -48,6 +60,18 @@
             images: [
                 {
                     full: '/Content/Images/pentagonal.gif'
+                }
+            ],
+            reviews: [
+                {
+                    stars: 5,
+                    body: "I love this product!",
+                    author: "joe@thoma.com"
+                },
+                {
+                    stars: 1,
+                    body: "This product sucks",
+                    author: "tim@hater.com"
                 }
             ],
             canPurchase: false,
