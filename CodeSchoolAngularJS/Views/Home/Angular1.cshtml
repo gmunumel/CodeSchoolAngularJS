@@ -25,16 +25,16 @@
             <div class="panel" ng-show="panel.isSelected(3)">
                 <h4>Reviews</h4>
                 <blockquote ng-repeat="review in product.reviews">
-                    <b>Stars: {{review.stars}}</b>
-                    {{review.body}}
-                    <cite>by: {{review.author}}</cite>
+                    <b>Stars: {{review.stars}}</b> {{review.body}}<br />
+                    <cite>-{{review.author}}</cite>
                 </blockquote>
-                <form name="reviewForm">
+                <form name="reviewForm" ng-controller="ReviewController as reviewCtrl"
+                      ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
                     <h4>Submit a Review</h4>
-                    <b>Stars: {{review.stars}}</b>
-                    {{review.body}}
-                    <cite>by: {{review.author}}</cite>
-                    <select ng-model="review.stars" class="form-control">
+                    <b>Stars: {{reviewCtrl.review.stars}}</b>
+                    {{reviewCtrl.review.body}}
+                    <cite>by: {{reviewCtrl.review.author}}</cite>
+                    <select ng-model="reviewCtrl.review.stars" class="form-control" required>
                         <option value="1">1 star</option>
                         <option value="2">2 stars</option>
                         <option value="3">3 stars</option>
@@ -42,9 +42,10 @@
                         <option value="5">5 stars</option>
                     </select>
                     <br />
-                    <textarea ng-model="review.body" class="form-control"></textarea>
+                    <textarea ng-model="reviewCtrl.review.body" class="form-control" required></textarea>
                     <label>by:</label>
-                    <input ng-model="review.author" class="form-control" type="email" />
+                    <input name="author" ng-model="reviewCtrl.review.author" class="form-control" type="email" required />
+                    <div> reviewForm is {{reviewForm.$valid}} </div>
                     <br />
                     <input type="submit" value="Submit Review" />
                 </form>
