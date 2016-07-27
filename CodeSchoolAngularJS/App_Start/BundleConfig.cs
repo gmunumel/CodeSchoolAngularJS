@@ -30,6 +30,7 @@ namespace CodeSchoolAngularJS
             // Load library
             bundles.Add(new ScriptBundle("~/bundles/CodeSchoolAngularJS")
                 .IncludeDirectory("~/Scripts/Controllers", "*.js")
+                .IncludeDirectory("~/Scripts/Directives", "*.js")
                 .Include("~/Scripts/CodeSchoolAngularJS.js"));
         }
     }
